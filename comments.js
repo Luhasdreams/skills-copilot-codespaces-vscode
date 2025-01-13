@@ -1,43 +1,17 @@
-// Create Web server
-// 1. Import Express
-const express = require('express');
-const app = express();
-const PORT = 4000;
+// Create web server
+// var http = require('http');
+var express = require('express');
+var app = express();
+var router = express.Router();
+var comments = require('./comments.json');
+var fs = require('fs');
+var bodyParser = require('body-parser');
+var path = require('path');
+var cors = require('cors');
 
-// 2. Create a route
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+// var server = http.createServer(function (req, res) {
+//     res.writeHead(200, {'Content-Type': 'text/plain'});
+//     res.end('Hello World\n');
+// });
 
-app.get('/comments', (req, res) => {
-    res.json({
-        comments: [
-            {
-                username: 'Todd',
-                comment: 'lol so funny'
-            },
-            {
-                username: 'Skyler',
-                comment: 'I like to go birdwatching with my dog'
-            },
-            {
-                username: 'Sk8erBoi',
-                comment: 'Plz delete your account, Todd'
-            },
-            {
-                username: 'onlysayswoof',
-                comment: 'woof woof woof'
-            }
-        ]
-    });
-});
-
-// 3. Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
-// 4. Run the server
-// node comments.js
-// Then visit http://localhost:4000/comments
-// You should see the JSON data in your browser
-// If you see "Cannot GET /comments" instead, it means you didn't create a route for the /comments URL
+// server.listen(3000, '
