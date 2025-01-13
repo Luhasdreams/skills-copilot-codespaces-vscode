@@ -1,7 +1,3 @@
-// Example JavaScript function
-function addNumbers(a, b) {
-    return a + b;
+function calculateNubmers(var1, var2) {
+  return var1 + var2;
 }
-
-// Call the function and log the result
-console.log(addNumbers(5, 10));
